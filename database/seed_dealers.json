@@ -1,0 +1,7 @@
+[
+  {"id": 1, "city": "Chicago", "state": "Illinois", "st": "IL", "address": "100 Main St", "zip": "60601", "lat": 41.8781, "long": -87.6298, "full_name": "Chicago Auto Dealers Inc", "short_name": "Chicago Motors"},
+  {"id": 2, "city": "Wichita", "state": "Kansas", "st": "KS", "address": "200 Elm St", "zip": "67202", "lat": 37.6872, "long": -97.3301, "full_name": "Wichita Car Center", "short_name": "Wichita Cars"},
+  {"id": 3, "city": "Topeka", "state": "Kansas", "st": "KS", "address": "300 Oak St", "zip": "66603", "lat": 39.0473, "long": -95.6752, "full_name": "Topeka Auto Group", "short_name": "Topeka Motors"},
+  {"id": 4, "city": "Austin", "state": "Texas", "st": "TX", "address": "400 Pine St", "zip": "73301", "lat": 30.2672, "long": -97.7431, "full_name": "Austin Auto World", "short_name": "Austin Cars"},
+  {"id": 5, "city": "Denver", "state": "Colorado", "st": "CO", "address": "500 Cedar St", "zip": "80201", "lat": 39.7392, "long": -104.9903, "full_name": "Denver Dealership Co", "short_name": "Denver Motors"}
+]

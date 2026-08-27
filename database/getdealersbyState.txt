@@ -1,0 +1,2 @@
+curl.exe http://localhost:3030/fetchDealers/Kansas
+[{"_id":"6a90cb2b305308fcd32a59fb","id":2,"city":"Wichita","state":"Kansas","st":"KS","address":"200 Elm St","zip":"67202","lat":37.6872,"long":-97.3301,"full_name":"Wichita Car Center","short_name":"Wichita Cars","__v":0},{"_id":"6a90cb2b305308fcd32a59fc","id":3,"city":"Topeka","state":"Kansas","st":"KS","address":"300 Oak St","zip":"66603","lat":39.0473,"long":-95.6752,"full_name":"Topeka Auto Group","short_name":"Topeka Motors","__v":0}]

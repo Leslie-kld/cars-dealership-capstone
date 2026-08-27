@@ -1,0 +1,2 @@
+curl.exe http://localhost:3030/fetchCarMakes
+[{"make":"Toyota","models":["Camry"]},{"make":"Honda","models":["Civic"]},{"make":"Ford","models":["Focus"]}]

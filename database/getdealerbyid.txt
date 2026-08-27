@@ -1,0 +1,2 @@
+curl.exe http://localhost:3030/fetchDealer/2
+{"_id":"6a90cb2b305308fcd32a59fb","id":2,"city":"Wichita","state":"Kansas","st":"KS","address":"200 Elm St","zip":"67202","lat":37.6872,"long":-97.3301,"full_name":"Wichita Car Center","short_name":"Wichita Cars","__v":0}
