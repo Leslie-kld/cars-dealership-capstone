@@ -9,13 +9,16 @@ const Register = () => {
 
   const register = async (e) => {
     e.preventDefault();
-    const res = await fetch("/djangoapp/register", {
+        const res = await fetch("http://localhost:8080/djangoapp/register", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ userName, password, firstName, lastName, email }),
     });
-    const json = await res.json();
-    console.log(json);
+     const json = await res.json();
+    if (json.status === "Authenticated") {
+      sessionStorage.setItem("userName", json.userName);
+      window.location.href = "/";
+    }
   };
 
   return (

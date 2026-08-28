@@ -2,7 +2,6 @@ require('dotenv').config();
 const express = require('express');
 const mongoose = require('mongoose');
 const cors = require('cors');
-
 const Dealer = require('./dealership');
 const Review = require('./review');
 
@@ -38,7 +37,7 @@ app.get('/fetchReviews/dealer/:id', async (req, res) => {
   res.json(reviews);
 });
 
-// Task 14/15: get all car makes and models (derived from reviews collection)
+// Task 14/15: get all car makes and models
 app.get('/fetchCarMakes', async (req, res) => {
   const reviews = await Review.find();
   const makesModels = {};
@@ -50,6 +49,15 @@ app.get('/fetchCarMakes', async (req, res) => {
     make, models: Array.from(models)
   }));
   res.json(result);
+});
+
+// Post a new review
+app.post('/postReview', async (req, res) => {
+  const lastReview = await Review.findOne().sort({ id: -1 });
+  const newId = lastReview ? lastReview.id + 1 : 1;
+  const review = new Review({ ...req.body, id: newId });
+  await review.save();
+  res.json({ status: "Review posted", review });
 });
 
 const PORT = process.env.PORT || 3030;
