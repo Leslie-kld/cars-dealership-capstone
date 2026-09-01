@@ -1,2 +1,2 @@
-curl.exe -X POST http://localhost:8080/djangoapp/logout
+curl.exe -X GET http://localhost:8080/djangoapp/logout
 {"userName": ""}
