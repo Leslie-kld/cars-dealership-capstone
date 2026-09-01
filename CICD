@@ -1,30 +1,34 @@
-GitHub Actions CI/CD Workflow - Run #1
+GitHub Actions CI/CD Workflow - Run #10
 Status: Success
-Commit: 99dce03c42b7835c5faea46a2b6f6286d7e6df14
+Commit: fb7b75d585a822c9870cd0015a348092f849b1e2
 Workflow: .github/workflows/ci.yml
 
-Step: Checkout code
-Syncing repository: Leslie-kld/cars-dealership-capstone
-Getting Git version info
-Initializing the repository
-Setting up auth
-Fetching the repository
-Checking out the ref
-/usr/bin/git log -1 --format=%H
-99dce03c42b7835c5faea46a2b6f6286d7e6df14
+JOB: Lint Python Files
+Status: Success
+Duration: 8s
 
-Step: Run Django checks
-python manage.py check
-System check identified no issues (0 silenced).
+Step: Run flake8 server --exit-zero
+server/djangoapp/admin.py:1:1: F401 'django.contrib.admin' imported but unused
+server/djangoapp/models.py:1:1: F401 'django.db.models' imported but unused
+server/djangoapp/tests.py:1:1: F401 'django.test.TestCase' imported but unused
+server/djangoapp/urls.py:10:2: W292 no newline at end of file
+server/djangoapp/views.py:5:1: F401 'django.contrib.auth.decorators.login_required' imported but unused
+server/djangoapp/views.py:8:1: E302 expected 2 blank lines, found 1
+server/djangoapp/views.py:21:1: E302 expected 2 blank lines, found 0
+server/djangoapp/views.py:40:51: W291 trailing whitespace
+server/djangoapp/views.py:42:1: E302 expected 2 blank lines, found 1
+server/djangoapp/views.py:46:9: F841 local variable 'username' is assigned to but never used
+server/djangoapp/views.py:50:1: E302 expected 2 blank lines, found 1
+server/djangoapp/views.py:60:80: E501 line too long (82 > 79 characters)
+server/djangoapp/views.py:67:75: W292 no newline at end of file
+server/djangoproj/settings.py:23:80: E501 line too long (81 > 79 characters)
+server/djangoproj/settings.py:90:80: E501 line too long (91 > 79 characters)
+server/djangoproj/settings.py:93:80: E501 line too long (81 > 79 characters)
+server/djangoproj/settings.py:96:80: E501 line too long (82 > 79 characters)
+server/djangoproj/settings.py:99:80: E501 line too long (83 > 79 characters)
+server/djangoproj/urls.py:7:2: W292 no newline at end of file
 
-All steps completed successfully:
-- Checkout code
-- Set up Python
-- Install Django dependencies
-- Run Django checks
-- Set up Node.js
-- Install Node dependencies
-- Install Python (Flask) dependencies
-- Run a basic sanity check
+JOB: Lint JavaScript Files
+Status: Success
 
-Total duration: 20s
+All jobs completed successfully.
