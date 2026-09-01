@@ -31,7 +31,11 @@ const Dealers = () => {
     <div>
       <nav>
         <span>Cars Dealership</span>
-        {userName ? <span>Welcome, {userName}</span> : <Link to="/register">Register</Link>}
+        {userName ? (
+          <span>Welcome, {userName} | <Link to="/">Review Dealer</Link></span>
+        ) : (
+          <Link to="/register">Register</Link>
+        )}
       </nav>
       <h1>Dealers</h1>
       <select value={state} onChange={handleFilter}>
@@ -44,12 +48,13 @@ const Dealers = () => {
       <table>
         <thead>
           <tr>
-            <th>Name</th><th>City</th><th>State</th><th>Address</th><th>Zip</th>
+            <th>ID</th><th>Name</th><th>City</th><th>State</th><th>Address</th><th>Zip</th>
           </tr>
         </thead>
         <tbody>
           {dealers.map((dealer) => (
             <tr key={dealer.id}>
+              <td>{dealer.id}</td>
               <td><Link to={`/dealer/${dealer.id}`}>{dealer.full_name}</Link></td>
               <td>{dealer.city}</td>
               <td>{dealer.state}</td>

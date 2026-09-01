@@ -18,6 +18,26 @@ def login_user(request):
     else:
         response_data["status"] = "Failed"
     return JsonResponse(response_data)
+@csrf_exempt
+def get_cars(request):
+    car_models = [
+        {"CarMake": "Toyota", "CarModel": "Camry"},
+        {"CarMake": "Toyota", "CarModel": "Corolla"},
+        {"CarMake": "Honda", "CarModel": "Civic"},
+        {"CarMake": "Honda", "CarModel": "Accord"},
+        {"CarMake": "Ford", "CarModel": "Focus"},
+        {"CarMake": "Ford", "CarModel": "Fusion"},
+        {"CarMake": "BMW", "CarModel": "3 Series"},
+        {"CarMake": "BMW", "CarModel": "5 Series"},
+        {"CarMake": "Mercedes", "CarModel": "C-Class"},
+        {"CarMake": "Mercedes", "CarModel": "E-Class"},
+        {"CarMake": "Audi", "CarModel": "A4"},
+        {"CarMake": "Audi", "CarModel": "A6"},
+        {"CarMake": "Chevrolet", "CarModel": "Malibu"},
+        {"CarMake": "Nissan", "CarModel": "Altima"},
+        {"CarMake": "Hyundai", "CarModel": "Sonata"},
+    ]
+    return JsonResponse({"CarModels": car_models}) 
 
 @csrf_exempt
 def logout_request(request):

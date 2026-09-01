@@ -19,6 +19,12 @@ const Dealer = () => {
     fetchData();
   }, [id]);
 
+  const sentimentImg = (s) => {
+    if (s === "positive") return "https://em-content.zobj.net/source/apple/354/smiling-face-with-smiling-eyes_1f60a.png";
+    if (s === "negative") return "https://em-content.zobj.net/source/apple/354/disappointed-face_1f61e.png";
+    return "https://em-content.zobj.net/source/apple/354/neutral-face_1f610.png";
+  };
+
   if (!dealer) return <div>Loading...</div>;
 
   return (
@@ -34,7 +40,12 @@ const Dealer = () => {
           <div key={r.id}>
             <p><strong>{r.name}</strong> - {r.car_year} {r.car_make} {r.car_model}</p>
             <p>{r.review}</p>
-            {r.sentiment && <p>Sentiment: {r.sentiment}</p>}
+            {r.sentiment && (
+              <p>
+                Sentiment: {r.sentiment}{' '}
+                <img src={sentimentImg(r.sentiment)} alt={r.sentiment} width="24" />
+              </p>
+            )}
           </div>
         ))
       )}

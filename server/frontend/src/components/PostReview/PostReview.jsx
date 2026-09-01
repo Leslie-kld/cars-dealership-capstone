@@ -9,6 +9,7 @@ const PostReview = () => {
   const [carMake, setCarMake] = useState("");
   const [carModel, setCarModel] = useState("");
   const [carYear, setCarYear] = useState("");
+  const [purchaseDate, setPurchaseDate] = useState("");
 
   const submitReview = async (e) => {
     e.preventDefault();
@@ -21,7 +22,7 @@ const PostReview = () => {
       dealership: parseInt(id),
       review,
       purchase: true,
-      purchase_date: new Date().toISOString().split('T')[0],
+      purchase_date: purchaseDate,
       car_make: carMake,
       car_model: carModel,
       car_year: parseInt(carYear),
@@ -50,6 +51,10 @@ const PostReview = () => {
           <textarea value={review} onChange={(e) => setReview(e.target.value)} />
         </div>
         <div>
+          <label>Purchase Date</label>
+          <input type="date" value={purchaseDate} onChange={(e) => setPurchaseDate(e.target.value)} />
+        </div>
+        <div>
           <label>Car Make</label>
           <input value={carMake} onChange={(e) => setCarMake(e.target.value)} />
         </div>
@@ -61,7 +66,7 @@ const PostReview = () => {
           <label>Car Year</label>
           <input type="number" value={carYear} onChange={(e) => setCarYear(e.target.value)} />
         </div>
-        <button type="submit">Submit</button>
+        <button type="submit">Post Review</button>
       </form>
     </div>
   );
