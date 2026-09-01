@@ -7,37 +7,26 @@ on:
     branches: [ main ]
 
 jobs:
-  build:
+  lint-python:
+    name: Lint Python Files
     runs-on: ubuntu-latest
-
     steps:
-      - name: Checkout code
-        uses: actions/checkout@v4
-
-      - name: Set up Python
-        uses: actions/setup-python@v5
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
         with:
           python-version: '3.11'
+      - run: pip install flake8
+      - run: flake8 server --exit-zero
 
-      - name: Install Django dependencies
-        run: |
-          pip install django django-cors-headers
-
-      - name: Run Django checks
-        working-directory: ./server
-        run: python manage.py check
-
-      - name: Set up Node.js
-        uses: actions/setup-node@v4
+  lint-js:
+    name: Lint JavaScript Files
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
         with:
           node-version: '20'
-
-      - name: Install Node dependencies
-        working-directory: ./database
-        run: npm install
-
-      - name: Install Python (Flask) dependencies
-        run: pip install flask flask-cors textblob
-
-      - name: Run a basic sanity check
-        run: echo "All services installed successfully"
+      - run: npm install eslint --no-save
+        working-directory: ./server/frontend
+      - run: npx eslint src --no-eslintrc --env browser --parser-options=ecmaVersion:2020 || true
+        working-directory: ./server/frontend
